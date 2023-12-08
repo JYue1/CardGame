@@ -7,19 +7,14 @@ public class Deck {
 
     public Deck(String[] ranks, String[] suits, int[] values) {
         cards = new ArrayList<>();
-        for (String ranks = i; i < 10; i++) {
-            for (String suits = i; i < 4; i++) {
-                Card add = new Card(ranks, suits, )
+        for (int i = 0; i < ranks.length; i++) {  // enhanced for-loop
+            for (int j = 0; j < suits.length; j++) {
+                Card card = new Card(ranks[i], suits[j], values[i]);
+                cards.add(card);
             }
         }
-
-        {"A", "2", "3", "4", "5", "6", "7", "8", "9", "10"}
-        {"Hearts", "Clubs", "Diamonds", "Spades"}
-        {1,2,3,4,5,6,7,8,9,10}
-        // use the shuffle method inside of here
         cardsLeft = cards.size();
-
-
+        shuffle();
     }
 
     public boolean isEmpty() {
@@ -30,13 +25,23 @@ public class Deck {
         return cardsLeft;
     }
 
-    public card deal(){
-        if isEmpy
-
+    public Card deal(){
+        if (cards.isEmpty()) {
+            return null;
+        }
+        cardsLeft--;
+        return cards.get(cardsLeft);
     }
 
     public void shuffle() {
-        // This is where you include math.random
+        cardsLeft = cards.size();
+        for (int i = cardsLeft; i >= 0; i--) {
+            int randomIndex = (int) (Math.random() * cardsLeft);
+            Card temp = cards.get(i);
+            cards.set(i, cards.get(randomIndex));
+            cards.set(randomIndex, temp);
+        }
+
     }
 }
 
