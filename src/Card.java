@@ -33,6 +33,9 @@ public class Card {
         this.values = values;
     }
 
+    // public boolean cardOther()
+    // return if suit (.equals)
+
     public String toString(){
         return ranks + " of " + suits;
     }
